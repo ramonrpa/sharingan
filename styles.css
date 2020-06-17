@@ -1,0 +1,217 @@
+body {
+    background-color: #000;
+    overflow: hidden;
+}
+
+.eye-div {
+    width: 455px;
+    height: 280px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 85% 15% 75%;
+    filter: url(#goo);
+}
+
+.eye {
+    width: 350px;
+    height: 350px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    border-radius: 85% 15% 75%;
+    overflow: hidden;
+    border-bottom: 8px #660000 solid;
+    border-right: 8px #660000 solid;
+    background-color: #000;
+    transition: 0.8s all;
+}
+
+.eye:hover {
+    background-color: #f8b7b7;
+    border-left: 0;
+    border-top: 0;
+    box-shadow: inset 0px 0px 53px 0px rgba(0, 0, 0, 0.75), 12px 14px 49px -21px rgba(102, 0, 0, 1);
+}
+
+.eye:hover>.shut span {
+    height: 0;
+}
+
+
+.eye:hover>.circle {
+    width: 300px;
+    height: 300px;
+}
+
+.eye:hover>.circle .circle-in {
+    animation: rotating 1.5s 1 both;
+}
+
+.shut {
+    width: 455px;
+    height: 280px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    z-index: 999;
+}
+
+.shut span {
+    display: block;
+    background: black;
+    width: 100%;
+    height: 100%;
+    transition: 1s all;
+}
+
+.drop {
+    width: 1.3em;
+    height: 1.3em;
+    border-radius: 0 50% 100% 100%;
+    background-color: #660000;
+    position: absolute;
+    top: 80%;
+    animation: drop 3s infinite both;
+}
+
+.drop:nth-child(1) {
+    left: 14%;
+}
+
+.drop:nth-child(2) {
+    left: 39%;
+    top: 99%;
+    animation-delay: -.4s;
+}
+
+.drop:nth-child(3) {
+    left: 55%;
+    top: 99%;
+    animation-delay: -1.5s;
+}
+
+.drop:nth-child(4) {
+    left: 82%;
+    animation-delay: -.8s;
+}
+
+.circle {
+    width: 290px;
+    height: 290px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-48%, -50%) rotate(-70deg);
+    background: #a10000;
+    border-radius: 50%;
+    border: black 5px solid;
+    box-shadow: inset 0px 0px 53px 0px rgba(0, 0, 0, 0.75), inset 12px 12px 103px 0px rgba(0, 0, 0, 0.75);
+    transition: .5s all;
+    overflow: hidden;
+}
+
+.circle::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    content: "";
+    height: 50px;
+    width: 50px;
+    background-color: black;
+    border-radius: 50%;
+}
+
+.circle::before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    content: "";
+    height: 180px;
+    width: 180px;
+    border-radius: 50%;
+    border: 7px solid black;
+}
+
+.circle-in {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+}
+
+.curse {
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    background: black;
+    border-radius: 50%;
+}
+
+.curse::before {
+    content: "";
+    position: absolute;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border-top: 10px solid black;
+    border-left: 10px solid transparent;
+    left: 98%;
+    margin: -5% -95%;
+}
+
+.curse:nth-child(1) {
+    -webkit-transform: rotate(-180deg);
+    transform: rotate(-180deg);
+    top: 66%;
+    left: 20%;
+}
+
+.curse:nth-child(2) {
+    -webkit-transform: rotate(-30deg);
+    transform: rotate(-30deg);
+    top: 10%;
+    left: 44%;
+}
+
+.curse:nth-child(3) {
+    -webkit-transform: rotate(60deg);
+    transform: rotate(60deg);
+    top: 66%;
+    left: 66%;
+}
+
+@keyframes rotating {
+    from {
+        -ms-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    to {
+        -ms-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes drop {
+    0% {
+        transform: translateY(0) scaleX(.90) rotate(45deg);
+        animation-timing-function: ease-out;
+    }
+    60% {
+        transform: translateY(50%) scaleX(.85) rotate(45deg);
+        animation-timing-function: ease-in;
+    }
+    80%, 100% {
+        transform: translateY(60vh) scaleX(.85) rotate(45deg);
+    }
+}
